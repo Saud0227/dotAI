@@ -6,6 +6,13 @@ def pRound(n, decimals=0):
 
 
 class vector():
+    """
+    @classmethod
+    def make2D(cls, deg):
+        tmp = cls(x,y)
+        tmp
+    """
+
     def __init__(self,x,y):
         self.x = x
         self.y = y

@@ -19,13 +19,22 @@ class vector():
         print(self.x,self.y,self.mag())
     
     def deg(self):
-        cMag = self.mag() * -1
-        dist = 
+        cMag = self.mag()*-1
+        topSideEq = cMag**2 + cMag**2 - ((cMag-self.y)**2 + self.x**2)
+        bottomSideEq = 2 * cMag**2
+        deg = m.degrees(m.acos(topSideEq/bottomSideEq))
+        if(self.x<0):
+            deg = 360-deg
+        print(pRound(deg,2))
+    
+    def human(self):
+        return("x:{}\nY:{}\nMag:{}".format(self.x,self.y,self.mag()))
 
 def main():
-    tmpV = vector(10,-20)
+    tmpV = vector(4,4)
     print(tmpV.human())
-    tmpV.normalise()
+    tmpV.normalize()
+    tmpV.deg()
 
 if __name__ == "__main__":
     main()

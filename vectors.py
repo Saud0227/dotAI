@@ -6,12 +6,31 @@ def pRound(n, decimals=0):
 
 
 class vector():
-    """
+
+    @staticmethod
+    def degWrapping(deg):
+         
+        if(deg<0):
+            return(360-deg)
+        elif(deg>360):
+            return(deg-360)
+        else:
+            return(deg)
+    
     @classmethod
     def make2D(cls, deg):
-        tmp = cls(x,y)
-        tmp
-    """
+        deg = cls.degWrapping(deg)
+        invdeg = m.radians(cls.degWrapping(180-deg))
+        #print(m.degrees(invdeg),cls.degWrapping(180-deg))
+        tmpX = pRound(m.sin(invdeg),2)
+        if(deg>180):
+            tmpX*=-1
+        tmpY = pRound(m.cos(invdeg),2)
+        print(str(tmpX) + ";" + str(tmpY))
+        
+
+
+    
 
     def __init__(self,x,y):
         self.x = x
@@ -38,10 +57,14 @@ class vector():
         return("x:{}\nY:{}\nMag:{}".format(self.x,self.y,self.mag()))
 
 def main():
+    """
     tmpV = vector(4,4)
     print(tmpV.human())
     tmpV.normalize()
     tmpV.deg()
-
+    """
+    for i in range(12):
+        #print(360/12*i)
+        vector.make2D(360/12*i)
 if __name__ == "__main__":
     main()

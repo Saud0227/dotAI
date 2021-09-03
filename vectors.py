@@ -15,14 +15,14 @@ class vector():
 
     @staticmethod
     def degWrapping(deg):
-         
+
         if(deg<0):
             return(360-deg)
         elif(deg>360):
             return(deg-360)
         else:
             return(deg)
-    
+
     @classmethod
     def make2D(cls, deg):
         deg = cls.degWrapping(deg)
@@ -39,7 +39,7 @@ class vector():
         return(isinstance(obj,cls))
 
 
-    
+
 
     def __init__(self,x,y):
         self.x = x
@@ -51,7 +51,7 @@ class vector():
         tmpMag = self.mag()
         self.x = self.x/tmpMag
         self.y = self.y/tmpMag
-    
+
     def deg(self):
         cMag = self.mag()*-1
         topSideEq = cMag**2 + cMag**2 - ((cMag-self.y)**2 + self.x**2)
@@ -61,7 +61,7 @@ class vector():
             deg = 360-deg
         return pRound(deg,2)
 
-    
+
     def add(self,x,y=0):
         if (isinstance(x,int) or isinstance(x,float)) and (isinstance(y,int) or isinstance(y,float)):
             self.x+=x
@@ -93,7 +93,7 @@ class vector():
         return("x:{}\nY:{}\nMag:{}".format(self.x,self.y,self.mag()))
 
 def main():
-    
+
     tmpV = vector(4,4)
     print(tmpV.human())
     #tmpV.normalize()
@@ -108,7 +108,7 @@ def main():
         #print(360/12*i)
         print(vector.make2D(360/12*i).human())
     """
-        
-        
+
+
 if __name__ == "__main__":
     main()

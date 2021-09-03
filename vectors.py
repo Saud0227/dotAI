@@ -3,7 +3,7 @@ import math as m
 
 
 """
-    When importing, import only the vector class and definitly not *
+    When importing, import only the vector class and definitely not *
 """
 
 def pRound(n, decimals=0):

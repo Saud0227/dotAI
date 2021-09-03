@@ -1,5 +1,11 @@
 import math as m
 
+
+
+"""
+    When importing, import only the vector class and definitly not *
+"""
+
 def pRound(n, decimals=0):
     multiplier = 10 ** decimals
     return m.floor(n*multiplier + 0.5) / multiplier
@@ -21,13 +27,16 @@ class vector():
     def make2D(cls, deg):
         deg = cls.degWrapping(deg)
         invdeg = m.radians(cls.degWrapping(180-deg))
-        #print(m.degrees(invdeg),cls.degWrapping(180-deg))
+
         tmpX = pRound(m.sin(invdeg),2)
         if(deg>180):
             tmpX*=-1
         tmpY = pRound(m.cos(invdeg),2)
-        print(str(tmpX) + ";" + str(tmpY))
-        
+
+        return(cls(tmpX,tmpY))
+    @classmethod
+    def checkVector(cls, obj):
+        return(isinstance(obj,cls))
 
 
     
@@ -42,7 +51,6 @@ class vector():
         tmpMag = self.mag()
         self.x = self.x/tmpMag
         self.y = self.y/tmpMag
-        print(self.x,self.y,self.mag())
     
     def deg(self):
         cMag = self.mag()*-1
@@ -51,20 +59,56 @@ class vector():
         deg = m.degrees(m.acos(topSideEq/bottomSideEq))
         if(self.x<0):
             deg = 360-deg
-        print(pRound(deg,2))
+        return pRound(deg,2)
+
     
+    def add(self,x,y=0):
+        if (isinstance(x,int) or isinstance(x,float)) and (isinstance(y,int) or isinstance(y,float)):
+            self.x+=x
+            self.y+=y
+        elif vector.checkVector(x):
+            self.x+=x.x
+            self.y+=x.y
+
+    def mult(self,x,y=" "):
+        if (isinstance(x,int) or isinstance(x,float)) and (isinstance(y,int) or isinstance(y,float)):
+            self.x*=x
+            self.y*=y
+        elif isinstance(x,int) or isinstance(x,float):
+            self.x*=x
+            self.y*=x
+        elif vector.checkVector(x):
+            self.x+=x.x
+            self.y+=x.y
+
+    def limit(self,l):
+        cMag = self.mag()
+        if cMag > l:
+            rScaler = cMag/l
+            self.x/=rScaler
+            self.y/=rScaler
+            print(cMag, l, self.mag())
+
     def human(self):
         return("x:{}\nY:{}\nMag:{}".format(self.x,self.y,self.mag()))
 
 def main():
-    """
+    
     tmpV = vector(4,4)
     print(tmpV.human())
-    tmpV.normalize()
-    tmpV.deg()
+    #tmpV.normalize()
+    print(tmpV.deg())
+    #tmpV.add(10,10)
+    #tmpV.add(vector(-10,-10))
+    tmpV.mult(2)
+    tmpV.limit(8)
+    print(tmpV.human())
     """
     for i in range(12):
         #print(360/12*i)
-        vector.make2D(360/12*i)
+        print(vector.make2D(360/12*i).human())
+    """
+        
+        
 if __name__ == "__main__":
     main()

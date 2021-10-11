@@ -1,16 +1,23 @@
-
+from vectors import vector
 
 
 
 class dot():
     def __init__(self, sPos, gPos, isBest):
-        self.x = sPos[0]
-        self.y = sPos[1]
+        self.pos = sPos
+        
         self.g = gPos
+        #Goal posistion, vector
+
+
         self.isBest = isBest
+        self.dead = False
+        self. reachedGoal = False
+        
         
 def main():
-   print("!") 
+   tst1 = dot(vector(100,20),vector(0,0), False)
+   print(tst1.pos.x)
 
 
 

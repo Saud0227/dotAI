@@ -40,12 +40,15 @@ class vector():
 
 
 
-
     def __init__(self,x,y):
         self.x = x
         self.y = y
+    
     def mag(self):
         return pRound(m.sqrt(self.x*self.x + self.y*self.y),2)
+    
+    def __str__(self):
+        return(str(self.x) +","+ str(self.y))
 
     def normalize(self):
         tmpMag = self.mag()
@@ -103,6 +106,7 @@ def main():
     tmpV.mult(2)
     tmpV.limit(8)
     print(tmpV.human())
+    print(tmpV)
     """
     for i in range(12):
         #print(360/12*i)

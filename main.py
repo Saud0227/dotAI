@@ -15,6 +15,15 @@ class sim():
         for i in self.dots:
             print(i.pos)
 
+    def checkBlockers(self,dotI):
+        return true
+
+
+    def mainTick(self):
+        for d in self.dots:
+            d.iscolided = self.checkBlockers(d)
+            d.update()
+
 
 
 

@@ -49,6 +49,8 @@ class vector():
     
     def __str__(self):
         return(str(self.x) +","+ str(self.y))
+    def __repr__(self):
+        return f"Vector:{self.x},{self.y}  id:{id(self)}\n"
 
     def normalize(self):
         tmpMag = self.mag()

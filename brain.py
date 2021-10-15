@@ -14,7 +14,11 @@ class brain():
         else:
             self.rndInstructions()
 
-
+    def __str__(self):
+        return(f"Brain type with {self.nMoves} instructions")
+    def __repr__(self):
+        return f"Brain:{self.nMoves}, id:{id(self)}\n"
+    
     def rndInstructions(self):
         for i in range(self.nMoves):
             self.instructions.append(vector.make2D(randint(0, 360)))
@@ -30,6 +34,7 @@ def main():
    tst1.rndInstructions()
    tst2 = brain(len(tst1.instructions),tst1.instructions)
    tst2.mutate()
+   print(tst2)
 
 
 

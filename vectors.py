@@ -92,7 +92,7 @@ class vector():
             rScaler = cMag/l
             self.x/=rScaler
             self.y/=rScaler
-            print(cMag, l, self.mag())
+            # print(cMag, l, self.mag())
 
     def human(self):
         return("x:{}\nY:{}\nMag:{}".format(self.x,self.y,self.mag()))

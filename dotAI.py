@@ -17,7 +17,7 @@ class dot():
         
 def main():
    tst1 = dot(vector(100,20),vector(0,0), False)
-   print(tst1.pos.x)
+   print(tst1.pos)
 
 
 

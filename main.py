@@ -3,12 +3,16 @@ from dotAI import dot
 
 class sim():
     def __init__(self, popS, bSize, grSize, sPos, gPos, blockers = None):
+        """
+        popS => Population size
+
+        """
         self.gSize = grSize
         self.sPos = sPos
         self.gPos = gPos
         if blockers != None:
             self.blockers = blockers
-        
+
         self.dots = []
         for i in range(popS):
             self.dots.append(dot(bSize, self.sPos, self.gPos,False))
@@ -21,7 +25,7 @@ class sim():
 
     def mainTick(self):
         for d in self.dots:
-            d.iscolided = self.checkBlockers(d)
+            d.isCollided = self.checkBlockers(d)
             d.update()
 
 

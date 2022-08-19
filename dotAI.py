@@ -5,9 +5,9 @@ from brain import brain
 class dot():
     def __init__(self, bLength, sPos, gPos, isBest):
         self.pos = sPos
-        
+
         self.g = gPos
-        #Goal posistion, vector
+        #Goal position, vector
         self.brain = brain(bLength)
         self.brain.rndInstructions()
 
@@ -15,9 +15,9 @@ class dot():
         self.isBest = isBest
         self.dead = False
         self.reachedGoal = False
-        
+
         self.moveIndex = 0
-        self.iscolided = False
+        self.isCollided = False
 
     def __repr__(self):
         return f"<Dot object, Alive: {not self.dead}, id:{id(self)}>"
@@ -30,17 +30,17 @@ class dot():
             self.move()
         else:
             self.isDead = True
-    
+
     def move(self):
         cMove = self.brain.instruction[self.moveIndex]
         self.moveIndex+=1
         cMove.mult(self.dotSpeed)
         self.pos.add(cMove)
 
-    
 
-        
-        
+
+
+
 def main():
    tst1 = dot(1000,vector(100,20),vector(0,0), False)
    print(tst1.pos)

@@ -26,12 +26,12 @@ class vector():
     @classmethod
     def make2D(cls, deg):
         deg = cls.degWrapping(deg)
-        invdeg = m.radians(cls.degWrapping(180-deg))
+        inverseDegree = m.radians(cls.degWrapping(180-deg))
 
-        tmpX = pRound(m.sin(invdeg),2)
+        tmpX = pRound(m.sin(inverseDegree),2)
         if(deg>180):
             tmpX*=-1
-        tmpY = pRound(m.cos(invdeg),2)
+        tmpY = pRound(m.cos(inverseDegree),2)
 
         return(cls(tmpX,tmpY))
     @classmethod
@@ -43,10 +43,10 @@ class vector():
     def __init__(self,x,y):
         self.x = x
         self.y = y
-    
+
     def mag(self):
         return pRound(m.sqrt(self.x*self.x + self.y*self.y),2)
-    
+
     def __str__(self):
         return(str(self.x) +","+ str(self.y))
     def __repr__(self):
@@ -75,7 +75,7 @@ class vector():
             self.x+=x.x
             self.y+=x.y
 
-    def mult(self,x,y=" "):
+    def mult(self,x,y=""):
         if (isinstance(x,int) or isinstance(x,float)) and (isinstance(y,int) or isinstance(y,float)):
             self.x*=x
             self.y*=y

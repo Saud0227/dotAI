@@ -5,7 +5,7 @@ def main():
     cv=tk.Canvas(root)
     cv.pack(fill=tk.BOTH, expand=1)
     root.geometry("300x500+300+300")
-    
+
     root.mainloop()
 
 
